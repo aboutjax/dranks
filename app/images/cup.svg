@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="160px" height="160px" viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch Beta 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>cup</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="cup" sketch:type="MSArtboardGroup">
+            <g id="Path-4-Copy-+-Path-4-+-150ml-Copy" sketch:type="MSLayerGroup" transform="translate(39.000000, 30.000000)">
+                <g id="Path-4-Copy-+-Path-4" sketch:type="MSShapeGroup">
+                    <path d="M8.5,40 L21,100 L61.5,100 L74,40" id="Path-4-Copy" fill="#EAF2F9"></path>
+                    <path d="M0.5,0 L21,100 L61.5,100 L82,0" id="Path-4" stroke="#008AE8" stroke-width="2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
