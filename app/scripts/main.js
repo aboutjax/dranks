@@ -1,11 +1,9 @@
-var drinks = JSON.parse(localStorage.getItem('drinks'));
+'use strict';
 
-if (drinks.length<1){
-    console.log('NO DRINKS YET');
-}
+var target = 2000,
+    drinks;
 
-totalDrinks = function(){
-    'use strict';
+function totalDrinks() {
     var count = 0;  
     for (var i=0, n=drinks.length; i<n; i++){
         count += drinks[i];
@@ -13,8 +11,7 @@ totalDrinks = function(){
     return count;
 };
 
-addDrink = function() {
-    'use strict';
+function addDrink() {
     drinks.push(250);
     console.log(drinks);
     localStorage['drinks'] = JSON.stringify(drinks);
@@ -26,17 +23,13 @@ addDrink = function() {
     $('.water-log-percentage').html(Math.round(percentage) + '%');
 };
 
-target = 2000;
-
-percentageCalc = function() {
-    'use strict';
+function percentageCalc() {
     var totalDrinksNumber = totalDrinks();
 
     return totalDrinksNumber / target * 100;
 };
 
-resetDay = function() {
-    'use strict';
+function resetDay() {
     drinks.length = 0;
     console.log(totalDrinks());
     localStorage["drinks"] = JSON.stringify(drinks);
@@ -45,10 +38,21 @@ resetDay = function() {
     $('.water-log-percentage').html(Math.round(percentage) + '%');
 };
 
-window.onload = function() {
-    'use strict';
-    var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
-};
+function init() {
+    if (window.localStorage) {
+        var percentage;
+         
+        // Retreive existing value from localStorage or init empty array
+        drinks = JSON.parse(localStorage.getItem('drinks')) || [];
+        percentage = percentageCalc();
+        
+        // Set water height
+        $('.water-quantity').css('height',percentage + '%');
+        $('.water-log-percentage').html(Math.round(percentage) + '%');
+    } else {
+        // Handle no local storage
+        console.log('Browser doesn\'t support localStorage');
+    }
+}
 
+$(document).ready(init);
