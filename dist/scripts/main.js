@@ -1,6 +1,8 @@
 'use strict';
 
 var target = 2000,
+    waterQuantityNode = $('.water-quantity'),
+    waterQuantityValueNode = $('.water-log-quantity-value'),
     drinks;
 
 function totalDrinks() {
@@ -19,8 +21,8 @@ function addDrink() {
     console.log(percentageCalc());
 
     var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
 };
 
 function removeDrink() {
@@ -31,8 +33,8 @@ function removeDrink() {
     console.log(percentageCalc());
 
     var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
 };
 
 function percentageCalc() {
@@ -46,8 +48,8 @@ function resetDay() {
     console.log(totalDrinks());
     localStorage["drinks"] = JSON.stringify(drinks);
     var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
 };
 
 function init() {
@@ -59,8 +61,8 @@ function init() {
         percentage = percentageCalc();
         
         // Set water height
-        $('.water-quantity').css('height',percentage + '%');
-        $('.water-log-percentage').html(Math.round(percentage) + '%');
+        waterQuantityNode.css('height',percentage + '%');
+        waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
     } else {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');
