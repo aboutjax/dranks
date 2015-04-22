@@ -26,6 +26,22 @@ gulp.task('scripts', function() {
         }));
 });
 
+gulp.task('fonts', function() {
+    return gulp.src('./app/fonts/**/*')
+        .pipe(gulp.dest('./dist/fonts'))
+        .pipe(reload({
+            stream: true
+        }));
+});
+
+gulp.task('scriptsTwo', function() {
+    return gulp.src('./bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/*.js')
+        .pipe(gulp.dest('./dist/scripts/bootstrap'))
+        .pipe(reload({
+            stream: true
+        }));
+});
+
 gulp.task('html', function() {
     return gulp.src('./app/index.html')
         .pipe(gulp.dest('./dist'))
@@ -42,7 +58,7 @@ gulp.task('images', function() {
         }));
 });
 
-gulp.task('build', ['styles', 'scripts', 'images', 'html']);
+gulp.task('build', ['styles', 'fonts', 'scripts', 'scriptsTwo', 'images', 'html']);
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')

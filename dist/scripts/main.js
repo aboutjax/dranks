@@ -23,6 +23,18 @@ function addDrink() {
     $('.water-log-percentage').html(Math.round(percentage) + '%');
 };
 
+function removeDrink() {
+    drinks.pop();
+    console.log(drinks);
+    localStorage['drinks'] = JSON.stringify(drinks);
+    console.log(totalDrinks());
+    console.log(percentageCalc());
+
+    var percentage = percentageCalc();
+    $('.water-quantity').css('height',percentage + '%');
+    $('.water-log-percentage').html(Math.round(percentage) + '%');
+};
+
 function percentageCalc() {
     var totalDrinksNumber = totalDrinks();
 
@@ -56,3 +68,20 @@ function init() {
 }
 
 $(document).ready(init);
+
+$(document).keypress(function(e) {
+  if(e.charCode == 61) {
+    addDrink();
+  } else {
+    //nothing
+  }
+});
+
+$(document).keypress(function(e) {
+  if(e.charCode == 45) {
+    removeDrink();
+  } else {
+    //nothing
+  }
+});
+

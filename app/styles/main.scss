@@ -5,6 +5,7 @@ $secondary-color: #B3E0FF;
 // bower:scss
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "icons";
 
 body,
 html {
@@ -129,20 +130,23 @@ html {
 
 .button-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 
 .btn {
   border-radius: 3px;
+  padding: 0;
 }
 
-.btn--drink {
-  height: 60px;
+.btn--add-drink {
+  margin: 5px;
+  flex-basis: 80px;
+  height: 40px;
   width: 200px;
   color: #FFF;
+  font-size: 24px;
   background: $primary-color;
-  padding: 10px;
   text-transform: uppercase;
 
   &:hover {
@@ -154,18 +158,41 @@ html {
   }
 }
 
-.btn--reset {
-  height: 35px;
-  margin-top: 5px;
-  color: $primary-color;
-  background: lighten($secondary-color, 5%);
+.btn--remove-drink {
+  margin: 5px;
+  flex-basis: 80px;
+  height: 40px;
+  width: 200px;
+  color: #FFF;
+  font-size: 24px;
+  background: #FF8194;
+  text-transform: uppercase;
 
   &:hover {
-    color: $primary-color;
+    color: #FFF;
   }
 
   &:focus {
-    color: $primary-color;
+    color: #FFF;
+  }
+}
+
+
+.btn--reset {
+  position: fixed;
+  bottom: 0;
+
+  height: 35px;
+  width: 100px;
+  color: #333;
+  background: #d7d7d7;
+
+  &:hover {
+    color: #333;
+  }
+
+  &:focus {
+    color: #333;
   }
 }
 
