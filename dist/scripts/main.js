@@ -3,6 +3,8 @@
 var target = 2000,
     waterQuantityNode = $('.water-quantity'),
     waterQuantityValueNode = $('.water-log-quantity-value'),
+    waterQuantityCupNode = $('.water-log-quantity-cups'),
+    waterQuantityPercentageNode = $('.water-quantity-percentage'),
     drinks;
 
 function totalDrinks() {
@@ -23,6 +25,8 @@ function addDrink() {
     var percentage = percentageCalc();
     waterQuantityNode.css('height',percentage + '%');
     waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
 };
 
 function removeDrink() {
@@ -35,6 +39,8 @@ function removeDrink() {
     var percentage = percentageCalc();
     waterQuantityNode.css('height',percentage + '%');
     waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
 };
 
 function percentageCalc() {
@@ -50,6 +56,8 @@ function resetDay() {
     var percentage = percentageCalc();
     waterQuantityNode.css('height',percentage + '%');
     waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
 };
 
 function init() {
@@ -63,6 +71,13 @@ function init() {
         // Set water height
         waterQuantityNode.css('height',percentage + '%');
         waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+        waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
+
+        if (drinks.length == 0){
+            waterQuantityCupNode.html('Time to hydrate!')
+        } else {
+            waterQuantityCupNode.html(drinks.length + ' cups down');
+        }
     } else {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');

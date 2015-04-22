@@ -113,13 +113,27 @@ html {
   display: block;
 }
 
-.water-log-quantity-value {
+.water-log-quantity-container {
   position: fixed;
+  text-align: right;
   margin: 0;
   top: 50px;
   right: 50px;
   font-weight: 100;
   font-size: 50px;
+}
+
+.water-log-quantity-value {
+  font-weight: 600;
+  font-size: 2em;
+  margin: 0;
+}
+
+.water-log-quantity-cups {
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0;
+  margin-top: 10px;
 }
 
 .water-log-target-container {
@@ -141,7 +155,7 @@ html {
 
 .btn--add-drink {
   margin: 5px;
-  height: 50px;
+  height: 80px;
   width: 200px;
   color: #FFF;
   font-size: 24px;
@@ -155,6 +169,13 @@ html {
   &:focus {
     color: #FFF;
   }
+}
+
+.water-quantity-percentage {
+  position: fixed;
+  bottom: 40px;
+  text-align: center;
+  width: 100%;
 }
 
 .btn--reset {
@@ -177,4 +198,12 @@ html {
 
 .target-label {
   font-weight: 300;
+}
+
+@media screen and (max-width: 500px) {
+  .water-log-quantity-value {
+    font-weight: 600;
+    font-size: 1em;
+    margin: 0;
+  }
 }

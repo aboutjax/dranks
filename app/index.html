@@ -30,19 +30,14 @@
       <div class="content">
         <div class="water-quantity"></div>
         <div class="water-log">
-          <h1 class="water-log-quantity-value">0%</h1>
-          <dl class="water-log-target-container">
-            <dt class="target-label">Recommended daily water intake</dt>
-            <dd class="target-value">2000ml</dd>
-          </dl>
-          <div class="water-log-cup-size">
-            <img class="water-log-cup-size-illustration" src="images/cup.svg">
-            <p class="water-log-cup-size-text">250ml</p>
+          <div class="water-log-quantity-container">
+            <h1 class="water-log-quantity-value"></h1>
+            <h3 class="water-log-quantity-cups">1</h3>
           </div>
           <div class="button-group">
             <button onClick="addDrink()" class="btn btn--add-drink icon-add"></button>
           </div>
-          <button onClick="resetDay()" class="btn btn--reset">Reset</button>
+          <div class="water-quantity-percentage">You drank 80% of the recommended amount</div>
         </div>
       </div>
     </div>
