@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'hydrate-icon';
+    src: url('../fonts/hydrate.woff') format('woff'),
+         url('../fonts/hydrate.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'hydrate-icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+    content: "\e600";
+}
+
+.icon-remove:before {
+    content: "\e601";
+}
+
+.icon-minus-one:before {
+    content: "\e602";
+}
+
+.icon-plus-one:before {
+    content: "\e603";
+}
+
+.icon-check:before {
+    content: "\e604";
+}
+
+.icon-chevron-left:before {
+    content: "\e605";
+}
+
+.icon-chevron-right:before {
+    content: "\e606";
+}
+
+.icon-expand-less:before {
+    content: "\e607";
+}
+
+.icon-expand-more:before {
+    content: "\e608";
+}

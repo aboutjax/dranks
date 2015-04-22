@@ -1,6 +1,10 @@
 'use strict';
 
 var target = 2000,
+    waterQuantityNode = $('.water-quantity'),
+    waterQuantityValueNode = $('.water-log-quantity-value'),
+    waterQuantityCupNode = $('.water-log-quantity-cups'),
+    waterQuantityPercentageNode = $('.water-quantity-percentage'),
     drinks;
 
 function totalDrinks() {
@@ -19,8 +23,24 @@ function addDrink() {
     console.log(percentageCalc());
 
     var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
+};
+
+function removeDrink() {
+    drinks.pop();
+    console.log(drinks);
+    localStorage['drinks'] = JSON.stringify(drinks);
+    console.log(totalDrinks());
+    console.log(percentageCalc());
+
+    var percentage = percentageCalc();
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
 };
 
 function percentageCalc() {
@@ -34,8 +54,10 @@ function resetDay() {
     console.log(totalDrinks());
     localStorage["drinks"] = JSON.stringify(drinks);
     var percentage = percentageCalc();
-    $('.water-quantity').css('height',percentage + '%');
-    $('.water-log-percentage').html(Math.round(percentage) + '%');
+    waterQuantityNode.css('height',percentage + '%');
+    waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+    waterQuantityCupNode.html(drinks.length + ' cups down');
+    waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
 };
 
 function init() {
@@ -47,8 +69,15 @@ function init() {
         percentage = percentageCalc();
         
         // Set water height
-        $('.water-quantity').css('height',percentage + '%');
-        $('.water-log-percentage').html(Math.round(percentage) + '%');
+        waterQuantityNode.css('height',percentage + '%');
+        waterQuantityValueNode.html(Math.round(totalDrinks()) + 'ml');
+        waterQuantityPercentageNode.html('You drank ' + percentage + '%' + 'of the recommended daily intake')
+
+        if (drinks.length == 0){
+            waterQuantityCupNode.html('Time to hydrate!')
+        } else {
+            waterQuantityCupNode.html(drinks.length + ' cups down');
+        }
     } else {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');
@@ -56,3 +85,20 @@ function init() {
 }
 
 $(document).ready(init);
+
+$(document).keypress(function(e) {
+  if(e.charCode == 61) {
+    addDrink();
+  } else {
+    //nothing
+  }
+});
+
+$(document).keypress(function(e) {
+  if(e.charCode == 45) {
+    removeDrink();
+  } else {
+    //nothing
+  }
+});
+

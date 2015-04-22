@@ -5,6 +5,7 @@ $secondary-color: #B3E0FF;
 // bower:scss
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "icons";
 
 body,
 html {
@@ -112,13 +113,27 @@ html {
   display: block;
 }
 
-.water-log-percentage {
+.water-log-quantity-container {
   position: fixed;
+  text-align: right;
   margin: 0;
   top: 50px;
   right: 50px;
   font-weight: 100;
   font-size: 50px;
+}
+
+.water-log-quantity-value {
+  font-weight: 600;
+  font-size: 2em;
+  margin: 0;
+}
+
+.water-log-quantity-cups {
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0;
+  margin-top: 10px;
 }
 
 .water-log-target-container {
@@ -135,15 +150,16 @@ html {
 
 .btn {
   border-radius: 3px;
+  padding: 0;
 }
 
-.btn--drink {
-  height: 60px;
+.btn--add-drink {
+  margin: 5px;
+  height: 80px;
   width: 200px;
   color: #FFF;
+  font-size: 24px;
   background: $primary-color;
-  padding: 10px;
-  text-transform: uppercase;
 
   &:hover {
     color: #FFF;
@@ -152,23 +168,41 @@ html {
   &:focus {
     color: #FFF;
   }
+}
+
+.water-quantity-percentage {
+  position: fixed;
+  bottom: 40px;
+  text-align: center;
+  width: 100%;
 }
 
 .btn--reset {
+  position: fixed;
+  bottom: 0;
+
   height: 35px;
-  margin-top: 5px;
-  color: $primary-color;
-  background: lighten($secondary-color, 5%);
+  width: 100px;
+  color: #333;
+  background: #d7d7d7;
 
   &:hover {
-    color: $primary-color;
+    color: #333;
   }
 
   &:focus {
-    color: $primary-color;
+    color: #333;
   }
 }
 
 .target-label {
   font-weight: 300;
+}
+
+@media screen and (max-width: 500px) {
+  .water-log-quantity-value {
+    font-weight: 600;
+    font-size: 1em;
+    margin: 0;
+  }
 }
