@@ -82,10 +82,12 @@ function init() {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');
     }
+}
 
-    $(function() {
-    FastClick.attach(document.body);
-});
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
 }
 
 $(document).ready(init);
