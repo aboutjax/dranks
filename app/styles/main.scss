@@ -114,18 +114,21 @@ html {
 }
 
 .water-log-quantity-container {
-  position: fixed;
-  text-align: right;
-  margin: 0;
-  top: 50px;
-  right: 50px;
+  position: relative;
+  top: -100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   font-weight: 100;
   font-size: 50px;
 }
 
 .water-log-quantity-value {
-  font-weight: 600;
-  font-size: 2em;
+  font-weight: 300;
+  font-size: 0.5em;
   margin: 0;
 }
 
@@ -157,15 +160,26 @@ html {
   height: 80px;
   width: 200px;
   color: #FFF;
+  border-radius: 200px;
   font-size: 40px;
   background: $primary-color;
+  box-shadow: 0 5px 0 darken($primary-color, 10%);
+  transition-duration: 0.1s;
 
   &:hover {
     color: #FFF;
+    background: darken($primary-color, 3%);
+    outline: none;
   }
 
   &:focus {
+    outline: none;
     color: #FFF;
+  }
+
+  &:active {
+    outline: none !important;
+    box-shadow: 0 1px 0 darken($primary-color, 10%);
   }
 }
 
@@ -196,6 +210,45 @@ html {
 
 .target-label {
   font-weight: 300;
+}
+
+.cups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.cup {
+  position: relative;
+  padding: 20px;
+  font-size: 25px;
+  opacity: 0.1;
+  transform: rotateY(0deg);
+  top: 0;
+  transition: opacity linear 0.2s, top 0.5s cubic-bezier(0.750, 0.235, 0.440, 1.650), transform 0.8s cubic-bezier(0.750, 0.235, 0.440, 1.650);
+  // transition-duration: 0.2s;
+  // transition-timing-function: cubic-bezier(0.750, 0.235, 0.265, 1.550);
+}
+
+.cup--active {
+  opacity: 1;
+  top: -20px;
+  transform: rotateY(180deg);
+}
+
+.cup-check {
+  font-size: 16px;
+  color: $primary-color;
+  position: relative;
+  right: 54px;
+  bottom: 0px;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.cup-check--active {
+  opacity: 1;
 }
 
 @media screen and (max-width: 500px) {
