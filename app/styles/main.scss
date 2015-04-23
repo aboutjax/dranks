@@ -150,7 +150,6 @@ html {
 
 .btn {
   border-radius: 3px;
-  padding: 0;
 }
 
 .btn--add-drink {
@@ -158,7 +157,7 @@ html {
   height: 80px;
   width: 200px;
   color: #FFF;
-  font-size: 24px;
+  font-size: 40px;
   background: $primary-color;
 
   &:hover {

@@ -84,6 +84,12 @@ function init() {
     }
 }
 
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
 $(document).ready(init);
 
 $(document).keypress(function(e) {
