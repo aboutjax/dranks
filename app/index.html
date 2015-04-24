@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hydrate</title>
+    <title>Dranks</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -33,35 +33,35 @@
         <div class="water-quantity-percentage"></div>
         <div class="water-log-quantity-container">
           <ul class="cups">
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
-            <li>
+            <li class="cup-container">
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
@@ -69,7 +69,11 @@
 
         </div>
         <button onClick="addDrink()" class="btn btn--add-drink icon-plus-one"></button>
-        <button onClick="resetDay()" class="btn btn-link">Reset</button>
+        <ul class="shortcuts">
+          <li class="shortcut"><dt class="shortcut-keys">+</dt><dd class="shortcut-text">Add</dd></li>
+          <li class="shortcut"><dt class="shortcut-keys">-</dt><dd class="shortcut-text">Remove</dd></li>
+          <li class="shortcut"><dt class="shortcut-keys">0</dt><dd class="shortcut-text">Reset</dd></li>
+        </ul>
         </div>
       </div>
     </div>

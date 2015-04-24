@@ -58,7 +58,15 @@ gulp.task('images', function() {
         }));
 });
 
-gulp.task('build', ['styles', 'fonts', 'scripts', 'scriptsTwo', 'images', 'html']);
+gulp.task('CNAME', function() {
+    return gulp.src('./CNAME')
+        .pipe(gulp.dest('./dist'))
+        .pipe(reload({
+            stream: true
+        }));
+});
+
+gulp.task('build', ['styles', 'fonts', 'scripts', 'scriptsTwo', 'CNAME', 'images', 'html']);
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')
