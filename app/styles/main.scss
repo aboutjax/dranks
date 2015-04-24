@@ -185,7 +185,7 @@ html {
 
 .water-quantity-percentage {
   position: fixed;
-  bottom: 100px;
+  bottom: 80px;
   text-align: center;
   width: 100%;
 }
@@ -263,10 +263,9 @@ html {
   display: flex;
   justify-content: center;
   position: fixed;
-  bottom: 40px;
+  bottom: 10px;
   left: 0;
   right: 0;
-  display: none;
 }
 
 .shortcut {
@@ -281,14 +280,17 @@ html {
 .shortcut-text {
   font-size: 0.8em;
   font-weight: 400;
+  vertical-align: middle;
+  line-height: 1;
   color: #000;
 }
 
 .shortcut-keys {
-  padding: 5px;
-  margin-bottom: 4px;
+  padding: 0px;
+  margin-bottom: 8px;
   text-align: center;
-  width: 50px;
+  background: #FFF;
+  width: 30px;
   border-radius: 3px;
   border: 1px solid #b5b5b5;
   box-shadow: 0 2px 0 #b5b5b5;
