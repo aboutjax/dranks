@@ -85,6 +85,10 @@ function init() {
         waterQuantityValueNode.html('You drank ' + Math.round(totalDrinks()) + 'ml');
         waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
 
+        // Set cup checks
+        console.log(drinks.length);
+        cupNode.slice(0, drinks.length).addClass('cup--active');
+        cupCheckNode.slice(0, drinks.length).addClass('cup-check--active');
     } else {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');
