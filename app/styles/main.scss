@@ -224,19 +224,32 @@ html {
 .cup {
   position: relative;
   color: $primary-color;
-  font-size: 25px;
+  font-size: 75px;
   opacity: 0.1;
   transform: rotateY(0deg);
   top: 0;
-  transition: opacity linear 0.2s, transform 0.3s cubic-bezier(0.750, 0.235, 0.440, 1.650);
+  transition: opacity linear 0.2s, transform 0.5s cubic-bezier(0.750, 0.235, 0.440, 1.650), top 0.5s cubic-bezier(0.750, 0.235, 0.440, 1.650);
+}
+
+.cup-number {
+  font-size: 18px;
+  position: relative;
+  top: 10px;
+  font-weight: 400;
+  text-align: center;
+  color: #FFF;
+  z-index: 9;
 }
 
 .cup--active {
   opacity: 1;
+  top: -60px;
   transform: rotateY(180deg);
 }
 
 .cup-container {
+  position: relative;
+  top: 20px;
   display: flex;
   width: 100px;
   flex-direction: column;
@@ -266,6 +279,8 @@ html {
   bottom: 10px;
   left: 0;
   right: 0;
+
+  display: none;
 }
 
 .shortcut {
