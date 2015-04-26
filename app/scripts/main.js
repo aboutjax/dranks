@@ -21,12 +21,35 @@ var target = 2000,
     newDrinkLog,
     generateId,
     cupSizeSetting,
+    canvas = document.createElement('canvas'),
+    ctx,
+    faviconImg = document.createElement('img'),
+    link = document.getElementById('favicon').cloneNode(true),
     todayDrinks;
 
 var drinkLog = [];
 var drinkInfo = {};
 
-// New object constructor
+function dynamicFavicon() {
+    if(canvas.getContext) {
+        canvas.height = canvas.width = 16;
+        ctx = canvas.getContext('2d');
+        faviconImg.onload = function () {
+            ctx.drawImage(this, 0, 0);
+            ctx.font = 'bold 10px "helvetica", sans-serif';
+            ctx.fill();
+            ctx.fillStyle = '#008AE8';
+            ctx.textAlign = 'center';
+            ctx.fillText(todayDrinks.length, 8, 12);
+            link.href = canvas.toDataURL('image/png');
+            document.head.appendChild(link);
+        };
+        faviconImg.src = 'favicon.png';
+    }
+};
+
+
+// New drink constructor
 function newDrinkInfo() {
 
     var now = new Date();
@@ -60,6 +83,7 @@ function addDrink() {
 
     var percentage = percentageCalc().toFixed(2);
     var cupNumber = todayDrinks.length;
+    dynamicFavicon();
     cupNumberNode.html(cupNumber);
     historyLogNode.html(drinkLog.length)
     cupNode.eq(cupNumber - 1).addClass('cup--active');
@@ -81,12 +105,16 @@ function removeDrink() {
 
     var percentage = percentageCalc().toFixed(2);
     var cupNumber = todayDrinks.length;
+    dynamicFavicon();
     cupNode.eq(cupNumber).removeClass('cup--active');
     cupNumberNode.html(cupNumber);
     waterQuantityNode.css('height',percentage + '%');
-    waterQuantityValueNode.html('You drank ' + Math.round(totalDrinks()) + 'ml');
-    waterQuantityCupNode.html(todayDrinks.length + ' cups down');
-    waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
+    
+    if (todayDrinks.length == 0) {
+            waterQuantityPercentageNode.html("You haven't drank any water yet.")
+        } else {
+            waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
+        };
 };
 
 function percentageCalc() {
@@ -117,6 +145,9 @@ function toggleSetup() {
 function init() {
     if (window.localStorage) {
         var percentage;
+
+        // Set favicon
+        dynamicFavicon();
          
         // Retreive existing value from localStorage or init empty array
         todayDrinks = JSON.parse(localStorage.getItem('todayDrinks')) || [];
@@ -128,7 +159,13 @@ function init() {
         // Set water height
         waterQuantityNode.css('height',percentage + '%');
         waterQuantityValueNode.html('You drank ' + Math.round(totalDrinks()) + 'ml');
-        waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
+
+        // Set message
+        if (todayDrinks.length == 0) {
+            waterQuantityPercentageNode.html("You haven't drank any water yet.")
+        } else {
+            waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
+        };
 
         // Set cup checks
         cupNumberNode.html(todayDrinks.length);

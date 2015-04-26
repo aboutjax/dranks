@@ -58,6 +58,14 @@ gulp.task('images', function() {
         }));
 });
 
+gulp.task('favicon', function() {
+    return gulp.src('./app/*.png')
+        .pipe(gulp.dest('./dist'))
+        .pipe(reload({
+            stream: true
+        }));
+});
+
 gulp.task('CNAME', function() {
     return gulp.src('./CNAME')
         .pipe(gulp.dest('./dist'))
@@ -66,7 +74,7 @@ gulp.task('CNAME', function() {
         }));
 });
 
-gulp.task('build', ['styles', 'fonts', 'scripts', 'scriptsTwo', 'CNAME', 'images', 'html']);
+gulp.task('build', ['styles', 'fonts', 'scripts', 'scriptsTwo', 'CNAME', 'images', 'favicon', 'html']);
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')
