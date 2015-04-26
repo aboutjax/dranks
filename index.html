@@ -27,6 +27,14 @@
     <![endif]-->
 
     <div class="container">
+      <header class="topbar">
+        <div class="header-logo">
+          <a class="header-logo-title" href="/">
+            <h4>DRANKS</h4>
+          </a>
+        </div>
+        <button id="settings-button" onClick="toggleSetup()" class="icon-control btn btn--settings"></button>
+      </header>
       <div class="content">
         <div class="water-quantity"></div>
         <div class="water-log">
@@ -34,49 +42,31 @@
         <div class="water-log-quantity-container">
           <ul class="cups">
             <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
-            </li>
-            <li class="cup-container">
+              <h1 class="cup-number">1</h1>
               <i class="cup icon-cup"></i>
               <i class="cup-check icon-check"></i>
             </li>
           </ul>
 
         </div>
-        <button onClick="addDrink()" class="btn btn--add-drink icon-plus-one"></button>
-        <ul class="shortcuts">
-          <li class="shortcut"><dt class="shortcut-keys">+</dt><dd class="shortcut-text">Add</dd></li>
-          <li class="shortcut"><dt class="shortcut-keys">-</dt><dd class="shortcut-text">Remove</dd></li>
-          <li class="shortcut"><dt class="shortcut-keys">0</dt><dd class="shortcut-text">Reset</dd></li>
-        </ul>
+        <button id="add-drink-button" onClick="addDrink()" class="btn btn--add-drink icon-plus-one"></button>
         </div>
       </div>
     </div>
+    <div class="settings-panel">
+    <h2 class="settings-panel-header">Settings</h2>
+    <div class="settings-panel-cup-size">
+      <form class="settings-panel-form" action="" class="settings-panel-form">
+        <h4 class="settings-panel-cup-size-label">Cup size (ml)</h4>
+        <input class="settings-panel-cup-size-input" type="number" step="50" placeholder="Enter amount" value="250">
+        <div class="actions-container">
+          <button onClick="resetDay()" class="btn btn-link btn--reset">Reset today</button>
+          <button onClick="saveSettings()" id="save-settings-button" class="btn--save-settings btn">Save</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    <div class="body-overlay"></div>
     <!-- endbower -->
     <!-- endbuild -->
 
