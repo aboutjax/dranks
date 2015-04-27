@@ -44,7 +44,6 @@ html {
 }
 
 .header-logo-title {
-  letter-spacing: 3px;
   font-weight: 400;
   color: $primary-color;
   opacity: 0.8;
@@ -58,6 +57,8 @@ html {
 
 .header-logo-text {
   font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .container {

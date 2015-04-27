@@ -200,7 +200,6 @@ $(document).keypress(function(e) {
   }
 });
 
-
 function saveSettings() {
     cupSizeSetting = settingsCupSizeNode.val();
     localStorage["cupSize"] = cupSizeSetting;
