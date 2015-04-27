@@ -94,14 +94,15 @@ function addDrink() {
 };
 
 function removeDrink() {
-    todayDrinks.pop();
-    drinkLog.pop();
+    if (todayDrinks.length > 0 && confirm('Are you sure you want to remove last drink?')){
+        todayDrinks.pop();
+        drinkLog.pop();
+    } else {
+        // do nothing
+    }
+
     localStorage['todayDrinks'] = JSON.stringify(todayDrinks);
     localStorage['drinkLog'] = JSON.stringify(drinkLog);
-
-    console.log(todayDrinks);
-    console.log(totalDrinks());
-    console.log(percentageCalc());
 
     var percentage = percentageCalc().toFixed(2);
     var cupNumber = todayDrinks.length;
@@ -148,6 +149,7 @@ function init() {
 
         // Set favicon
         dynamicFavicon();
+
          
         // Retreive existing value from localStorage or init empty array
         todayDrinks = JSON.parse(localStorage.getItem('todayDrinks')) || [];
@@ -174,6 +176,16 @@ function init() {
         // Handle no local storage
         console.log('Browser doesn\'t support localStorage');
     }
+     
+        // Check if last drink's date matches today's date
+        var now = new Date();
+        var todayDate = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+        var lastDrinkDate = drinkLog[ drinkLog.length - 1 ].date
+
+        if (lastDrinkDate[0] != todayDate[0] || lastDrinkDate[1] != todayDate[1] || lastDrinkDate[2] != todayDate[2]) {
+            alert("It's a new day!");
+            resetDay();
+        };
 }
 
 if ('addEventListener' in document) {
