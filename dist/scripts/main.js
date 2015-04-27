@@ -111,7 +111,7 @@ function removeDrink() {
     waterQuantityNode.css('height',percentage + '%');
     
     if (todayDrinks.length == 0) {
-            waterQuantityPercentageNode.html("You haven't drank any water yet.")
+            waterQuantityPercentageNode.html("You drank nothing today.")
         } else {
             waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
         };
@@ -162,7 +162,7 @@ function init() {
 
         // Set message
         if (todayDrinks.length == 0) {
-            waterQuantityPercentageNode.html("You haven't drank any water yet.")
+            waterQuantityPercentageNode.html("You drank nothing today.")
         } else {
             waterQuantityPercentageNode.html('You drank ' + '<strong>' + Math.round(totalDrinks()) + 'ml ' + '</strong>' + 'of water, '+ '<strong>' + percentage + '</strong>' + '%' + 'of the recommended daily intake');
         };
