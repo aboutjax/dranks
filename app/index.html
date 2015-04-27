@@ -23,10 +23,10 @@
       <header class="topbar">
         <div class="header-logo">
           <a class="header-logo-title" href="/">
-            <h4>DRANKS</h4>
+            <h4 class="header-logo-text">DRANKS</h4>
           </a>
         </div>
-        <button id="settings-button" onClick="toggleSetup()" class="icon-control btn btn--settings"></button>
+        <button id="settings-button" onClick="toggleSetup()" class="dranks-icon icon-control btn btn--settings"></button>
       </header>
       <div class="content">
         <div class="water-quantity"></div>
@@ -36,28 +36,35 @@
           <ul class="cups">
             <li class="cup-container">
               <h1 class="cup-number">1</h1>
-              <i class="cup icon-cup"></i>
-              <i class="cup-check icon-check"></i>
+              <i class="cup dranks-icon icon-cup"></i>
             </li>
           </ul>
 
         </div>
-        <button id="add-drink-button" onClick="addDrink()" class="btn btn--add-drink icon-plus-one"></button>
+        <button id="add-drink-button" onClick="addDrink()" class="btn btn--add-drink dranks-icon icon-plus-one"></button>
         </div>
       </div>
     </div>
     <div class="settings-panel">
-    <h2 class="settings-panel-header">Settings</h2>
-    <div class="settings-panel-cup-size">
-      <form class="settings-panel-form" action="" class="settings-panel-form">
-        <h4 class="settings-panel-cup-size-label">Cup size (ml)</h4>
-        <input class="settings-panel-cup-size-input" type="number" step="50" placeholder="Enter amount" value="250">
-        <div class="actions-container">
-          <button onClick="resetDay()" class="btn btn-link btn--reset">Reset today</button>
-          <button onClick="saveSettings()" id="save-settings-button" class="btn--save-settings btn">Save</button>
+      <div class="settings-panel-top">
+        <h2 class="settings-panel-header">Settings</h2>
+        <div class="settings-panel-cup-size">
+          <form class="settings-panel-form" action="" class="settings-panel-form">
+            <h4 class="settings-panel-cup-size-label">Cup size (ml)</h4>
+            <input class="settings-panel-cup-size-input" type="number" step="50" placeholder="Enter amount" value="250">
+            <div class="actions-container">
+              <button onClick="resetDay()" class="btn btn--reset">Reset today</button>
+              <button onClick="saveSettings()" id="save-settings-button" class="btn--save-settings btn">Save</button>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="about">
+        <p>Dranks is a tiny little web thing built by <a href="http://www.jackylee.co">Jacky Lee.</a></p>
+        <p>This project can be found <a href="https://github.com/aboutjax/dranks">here.</a></p>
+        <p>I use it to remind myself how much water I drank each day so everyone around me can stop nagging me.</p>
+        <p>Hopefully you find it useful too.</p>
+      </div>
     </div>
     <div class="body-overlay"></div>
     <!-- endbower -->

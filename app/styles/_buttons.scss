@@ -1,0 +1,93 @@
+.btn--reset {
+    border-radius: 33px;
+    background: $white;
+    width: 120px;
+    border: $global-border;
+    height: 50px;
+    color: #D53B25;
+
+    &:hover {
+        color: #D53B25;
+        background: #FAFAFA;
+        text-decoration: none;
+        border: $global-border;
+    }
+
+    &:active {
+        background: #FAFAFA;
+        border: $global-border;
+    }
+
+    &:focus {
+        color: #D53B25;
+        border: $global-border;
+    }
+}
+
+
+.btn--add-drink {
+    margin: 5px;
+    height: 80px;
+    width: 200px;
+    color: #FFF;
+    border-radius: 200px;
+    font-size: 40px;
+    background: $primary-color;
+    box-shadow: 0 4px 0 darken($primary-color, 10%);
+    transition-duration: 0.1s;
+
+    &:hover {
+        color: #FFF;
+        background: darken($primary-color, 3%);
+        outline: none;
+    }
+
+    &:focus {
+        outline: none;
+        color: #FFF;
+    }
+
+    &:active {
+        outline: none !important;
+        box-shadow: 0 1px 0 darken($primary-color, 10%);
+    }
+}
+
+/* ==========================================================================
+   Settings Button
+   ========================================================================== */
+
+.btn--settings {
+    font-size: 25px;
+    background: transparent;
+    color: $primary-color;
+    outline: none;
+
+    &:hover {
+      color: darken($primary-color, 5%);
+    }
+
+    &:focus {
+      color: $primary-color;
+      outline: none;
+    }
+}
+
+.btn--save-settings {
+    width: 120px;
+    background: $primary-color;
+    border-radius: 30px;
+    height: 50px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 300;
+
+    &:hover {
+        background: darken($primary-color, 5%);
+        color: #FFF;
+    }
+
+    &:focus {
+        color: #FFF;
+    }
+}
