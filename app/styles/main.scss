@@ -303,7 +303,7 @@ html {
 
 .actions-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* ==========================================================================
@@ -395,11 +395,6 @@ html {
 
   .settings-panel {
     width: 90%;
-  }
-
-  .actions-container {
-    flex-direction: column;
-    flex: flex-start;
   }
 
   .btn--reset,
