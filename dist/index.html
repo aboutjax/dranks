@@ -64,10 +64,17 @@
     <div class="settings-panel">
       <div class="settings-panel-top">
         <h2 class="settings-panel-header">Settings</h2>
-        <div class="settings-panel-cup-size">
+        <div class="settings-panel-form-container">
           <form class="settings-panel-form" action="" class="settings-panel-form">
-            <h4 class="settings-panel-cup-size-label">Cup size (ml)</h4>
-            <input class="settings-panel-cup-size-input" type="number" step="50" placeholder="Enter amount" value="250">
+            <div class="settings-section-column">
+              <label for="settings-cup-size" class="settings-panel-form-label">Cups size (ml)</label>
+              <input class="settings-panel-cup-size-input" type="number" step="50" placeholder="Enter amount" value="250" id="settings-cup-size">
+            </div>
+            <div class="settings-section-row">
+              <label class="settings-panel-form-label" for="settings-notification">Remind me to drink water every 30 minutes</label>
+              <input id="settings-notification" type="checkbox" onClick="requestNotification()">
+            </div>
+            <span class="notification-enabled-message"></span>
             <div class="actions-container">
               <button onClick="saveSettings()" id="save-settings-button" class="btn--save-settings btn">Save</button>
             </div>

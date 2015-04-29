@@ -278,12 +278,35 @@ html {
   width: 100%;
 }
 
-.settings-panel-cup-size-label {
+.settings-section-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  label {
+    margin: 0;
+    line-height: 30px;
+  }
+}
+
+.notification-enabled-message {
+  font-size: 12px;
+  color: #B5B5B5;
+  font-weight: 300;
+}
+
+.settings-section-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.settings-panel-form-label {
   margin-bottom: 15px;
   font-weight: 300;
 }
 
-.settings-panel-cup-size {
+.settings-panel-form-container {
   width: 100%;
   display: flex;
   align-items: center;
