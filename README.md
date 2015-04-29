@@ -1,5 +1,6 @@
 # What does it do?
 This is simply a water logger to track how much water you drank each day. 
+![animation](https://d13yacurqjgara.cloudfront.net/users/125053/screenshots/2036889/hydrate.gif)
 
 # Why?
 - Because I want to learn js. 
@@ -19,3 +20,9 @@ Each time you click on the big blue "+1" button, it logs the
 - **Dashboard** with weekly / monthly drinking log, possibly as a graph.
     + Map out the time that the user drinks throughout the day
 - Extend for Apple Watch / Pebble Time.
+
+# Settings
+- Cup size
+- Set reminder to drink water every 30min.
+![Settings](http://i.imgur.com/7ncQ8aQ.png?1)
+![Notification](http://i.imgur.com/5sFj4Zp.png)
