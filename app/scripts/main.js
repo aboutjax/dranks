@@ -235,8 +235,7 @@ function checkDrinkInterval() {
 
 // Set timer for notification
 
-// window.setInterval("checkDrinkInterval()", 5000);
-// window.setInterval("checkDrinkInterval()", 1000 * 60 * 30);
+window.setInterval("checkDrinkInterval()", 1000 * 60 * 30);
 
 // FastClick intitialize
 
