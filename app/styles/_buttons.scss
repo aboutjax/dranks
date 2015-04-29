@@ -53,6 +53,7 @@
     }
 }
 
+
 /* ==========================================================================
    Settings Button
    ========================================================================== */
@@ -73,8 +74,13 @@
     }
 }
 
+.btn--request-notification {
+    width: 100%;
+}
+
 .btn--save-settings {
-    width: 120px;
+    margin-top: 30px;
+    width: 100%;
     background: $primary-color;
     border-radius: 30px;
     height: 50px;
