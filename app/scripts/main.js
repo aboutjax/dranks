@@ -60,6 +60,7 @@ function newDrinkInfo() {
         drinkAmount: cupSize,
         date: [ now.getMonth() + 1, now.getDate(), now.getFullYear() ],
         time: [ now.getHours(), now.getMinutes(), now.getSeconds() ],
+        rawTimestamp: now.getTime()
     };
 }
 
