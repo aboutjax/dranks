@@ -200,6 +200,46 @@ function init() {
         };
 }
 
+function requestNotification() {
+    if(!Notification) {
+        alert('Please use a modern version of Chrome.')
+    }
+
+    if(Notification.permission !== "granted")
+        Notification.requestPermission();
+}
+
+function drinkNotification(interval) {
+    var notification = new Notification('Hey buddy!', {
+        icon: 'http://i.imgur.com/jgImjrc.png',
+        body: "Your last drank was "+ interval + " minutes ago."
+    });
+
+    notification.onclick = function () {
+    window.open("http://dranks.co");
+  };
+};
+
+function checkDrinkInterval() {
+    var timeStart = drinkLog[ drinkLog.length - 1].rawTimestamp;
+    var timeEnd = new Date().getTime();
+    var timestampDiff = timeEnd - timeStart;
+    var secondsDiff = timestampDiff / 1000; //in seconds
+    var minutesDiff = timestampDiff / 60 / 1000; //in minutes
+    var roundedMinutes = Math.round(minutesDiff);
+
+    if(minutesDiff < 60) {
+        drinkNotification(roundedMinutes);
+    }
+}
+
+// Set timer for notification
+
+// window.setInterval("checkDrinkInterval()", 5000);
+// window.setInterval("checkDrinkInterval()", 1000 * 60 * 30);
+
+// FastClick intitialize
+
 if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
         FastClick.attach(document.body);
