@@ -153,6 +153,15 @@ function init() {
         // Set favicon
         dynamicFavicon();
 
+        // Check if notification is enabled
+        if(Notification.permission == "granted"){
+            notificationCheckboxNode.prop("checked", true);
+            notificationCheckboxNode.prop("disabled", true);
+            notificationEnabledMessageNode.html('Looks like you have already granted permission for notifications.<a target="_blank" href="https://support.google.com/chrome/answer/3220216?hl=en">Click here</a> to find out how to reset it.');
+        } else {
+            notificationCheckboxNode.prop("checked", false);
+        }
+
          
         // Retreive existing value from localStorage or init empty array
         todayDrinks = JSON.parse(localStorage.getItem('todayDrinks')) || [];
