@@ -228,7 +228,7 @@ function checkDrinkInterval() {
     var minutesDiff = timestampDiff / 60 / 1000; //in minutes
     var roundedMinutes = Math.round(minutesDiff);
 
-    if(minutesDiff < 60) {
+    if(minutesDiff > 30) {
         drinkNotification(roundedMinutes);
     }
 }
