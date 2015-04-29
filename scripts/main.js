@@ -16,6 +16,8 @@ var target = 2000,
     cupCheckNode = $('.cup-check'),
     cupNumberNode = $('.cup-number'),
     historyLogNode = $('.history-log-list'),
+    notificationCheckboxNode = $('#settings-notification'),
+    notificationEnabledMessageNode = $('.notification-enabled-message'),
     saveTime,
     drinkLog,
     newDrinkLog,
@@ -58,6 +60,7 @@ function newDrinkInfo() {
         drinkAmount: cupSize,
         date: [ now.getMonth() + 1, now.getDate(), now.getFullYear() ],
         time: [ now.getHours(), now.getMinutes(), now.getSeconds() ],
+        rawTimestamp: now.getTime()
     };
 }
 
@@ -150,6 +153,15 @@ function init() {
         // Set favicon
         dynamicFavicon();
 
+        // Check if notification is enabled
+        if(Notification.permission == "granted"){
+            notificationCheckboxNode.prop("checked", true);
+            notificationCheckboxNode.prop("disabled", true);
+            notificationEnabledMessageNode.html('Looks like you have already granted permission for notifications.<a target="_blank" href="https://support.google.com/chrome/answer/3220216?hl=en">Click here</a> to find out how to reset it.');
+        } else {
+            notificationCheckboxNode.prop("checked", false);
+        }
+
          
         // Retreive existing value from localStorage or init empty array
         todayDrinks = JSON.parse(localStorage.getItem('todayDrinks')) || [];
@@ -187,6 +199,46 @@ function init() {
             resetDay();
         };
 }
+
+function requestNotification() {
+    if(!Notification) {
+        alert('Please use a modern version of Chrome.')
+    }
+
+    if(Notification.permission !== "granted")
+        Notification.requestPermission();
+}
+
+function drinkNotification(interval) {
+    var notification = new Notification('Hey buddy!', {
+        icon: 'http://i.imgur.com/jgImjrc.png',
+        body: "Your last drank was "+ interval + " minutes ago."
+    });
+
+    notification.onclick = function () {
+    window.open("http://dranks.co");
+  };
+};
+
+function checkDrinkInterval() {
+    var timeStart = drinkLog[ drinkLog.length - 1].rawTimestamp;
+    var timeEnd = new Date().getTime();
+    var timestampDiff = timeEnd - timeStart;
+    var secondsDiff = timestampDiff / 1000; //in seconds
+    var minutesDiff = timestampDiff / 60 / 1000; //in minutes
+    var roundedMinutes = Math.round(minutesDiff);
+
+    if(minutesDiff < 60) {
+        drinkNotification(roundedMinutes);
+    }
+}
+
+// Set timer for notification
+
+// window.setInterval("checkDrinkInterval()", 5000);
+// window.setInterval("checkDrinkInterval()", 1000 * 60 * 30);
+
+// FastClick intitialize
 
 if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
