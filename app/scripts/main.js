@@ -34,15 +34,15 @@ var drinkInfo = {};
 
 function dynamicFavicon() {
     if(canvas.getContext) {
-        canvas.height = canvas.width = 16;
+        canvas.height = canvas.width = 64;
         ctx = canvas.getContext('2d');
         faviconImg.onload = function () {
             ctx.drawImage(this, 0, 0);
-            ctx.font = 'bold 10px "helvetica", sans-serif';
+            ctx.font = 'bold 50px "helvetica", sans-serif';
             ctx.fill();
             ctx.fillStyle = '#008AE8';
-            ctx.textAlign = 'center';
-            ctx.fillText(todayDrinks.length, 8, 12);
+            ctx.textAlign = 'center';   
+            ctx.fillText(todayDrinks.length, 32, 50);
             link.href = canvas.toDataURL('image/png');
             document.head.appendChild(link);
         };
@@ -227,8 +227,10 @@ function checkDrinkInterval() {
     var secondsDiff = timestampDiff / 1000; //in seconds
     var minutesDiff = timestampDiff / 60 / 1000; //in minutes
     var roundedMinutes = Math.round(minutesDiff);
+    console.log(timestampDiff);
+    console.log(roundedMinutes);
 
-    if(minutesDiff < 60) {
+    if(minutesDiff > 30) {
         drinkNotification(roundedMinutes);
     }
 }
