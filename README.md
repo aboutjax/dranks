@@ -1,12 +1,11 @@
 # What does it do?
-This is simply a water logger to track how much water you drank each day. 
+This is simply a water logger to track how much water you drank each day.
 ![animation](https://d13yacurqjgara.cloudfront.net/users/125053/screenshots/2036889/hydrate.gif)
 
 # Why?
-- Because I want to learn js. 
+- Because I want to learn js.
 - Because I never know how much water I drank.
 - Because everyone around me nags me to drink more water, less coffee and sugary drinks.
-- Because I'm intrigued by the design philosophy of "Focus on doing one thing only, but do it well."
 
 # What is it tracking?
 Each time you click on the big blue "+1" button, it logs the
